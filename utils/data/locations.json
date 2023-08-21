@@ -1,0 +1,15 @@
+{
+  "Test 1" : {
+    "name" : "Test",
+    "image" : "image",
+    "uid": "",
+    "favorite":true,
+    "firebaseKey" : "Test99",
+    "neighborhood_id" : "Test33",
+    "terrain" : "Smooth",
+    "slope" : "Mid",
+    "busy" : "Mid",
+    "difficulty" : 3,
+    "public" : true
+  }
+}
