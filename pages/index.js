@@ -22,7 +22,7 @@ function Home() {
         <Button>Add A Location</Button>
       </Link>
       <div className="d-flex flex-wrap">
-        {/* TODO: map over books here using BookCard component */}
+        {/* TODO: map over books here using Locationcard component */}
         {locations.map((location) => (
           <LocationCard key={location.firebaseKey} locationObj={location} onUpdate={getAllTheLocations} />
         ))}
