@@ -20,4 +20,19 @@ const getNeighborhoods = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getNeighborhoods;
+const getSingleNeighborhood = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/neighborhoods/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export {
+  getNeighborhoods,
+  getSingleNeighborhood,
+};
