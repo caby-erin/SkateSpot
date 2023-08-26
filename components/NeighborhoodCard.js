@@ -13,7 +13,7 @@ function NeighborhoodCard({ neighborhoodObj }) {
         <Card.Title>{neighborhoodObj.name}</Card.Title>
         {/* DYNAMIC LINK TO VIEW THE NEIGHBORHOOD DETAILS  */}
         <Link href={`/neighborhood/${neighborhoodObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="primary" className="m-2">VIEW LOCATIONS</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE NEIGHBORHOOD DETAILS  */}
         <Link href={`/neighborhood/edit/${neighborhoodObj.firebaseKey}`} passHref>

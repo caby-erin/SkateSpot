@@ -1,6 +1,6 @@
-export default function NewLocaton() {
-  console.warn('new location');
-  return (
-    <h1>new locate</h1>
-  );
+import React from 'react';
+import LocationForm from '../../components/forms/LocationForm';
+
+export default function AddLocaton() {
+  return <LocationForm />;
 }

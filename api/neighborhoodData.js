@@ -32,7 +32,48 @@ const getSingleNeighborhood = (firebaseKey) => new Promise((resolve, reject) => 
     .catch(reject);
 });
 
+const getNeighborhoodLocations = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/locations.json?orderBy="neighborhood_id"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const createNeighborhood = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/neighborhoods.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const updateNeighborhood = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/neighborhoods/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getNeighborhoods,
   getSingleNeighborhood,
+  getNeighborhoodLocations,
+  createNeighborhood,
+  updateNeighborhood,
 };
