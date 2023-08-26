@@ -1,5 +1,5 @@
 import { getSingleLocation } from './locationData';
-import { getSingleNeighborhood } from './neighborhoodData';
+import { getNeighborhoodLocations, getSingleNeighborhood } from './neighborhoodData';
 
 const viewLocationDetails = (locationFirebaseKey) => new Promise((resolve, reject) => {
   getSingleLocation(locationFirebaseKey)
@@ -11,4 +11,14 @@ const viewLocationDetails = (locationFirebaseKey) => new Promise((resolve, rejec
     }).catch((error) => reject(error));
 });
 
-export default viewLocationDetails;
+const viewNeighborhoodDetails = (neighborhoodFirebaseKey) => new Promise((resolve, reject) => {
+  Promise.all([getSingleNeighborhood(neighborhoodFirebaseKey), getNeighborhoodLocations(neighborhoodFirebaseKey)])
+    .then(([neighborhoodObject, neighborhoodLocationsArray]) => {
+      resolve({ ...neighborhoodObject, locations: neighborhoodLocationsArray });
+    }).catch((error) => reject(error));
+});
+
+export {
+  viewNeighborhoodDetails,
+  viewLocationDetails,
+};

@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import viewLocationDetails from '../../api/mergedData';
+import { viewLocationDetails } from '../../api/mergedData';
 
 export default function ViewLocation() {
   const [locationDetails, setLocationDetails] = useState({});
@@ -13,6 +15,8 @@ export default function ViewLocation() {
     viewLocationDetails(firebaseKey).then(setLocationDetails);
   }, [firebaseKey]);
 
+  console.warn(locationDetails.neighborhoodObject?.name);
+
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
@@ -23,8 +27,16 @@ export default function ViewLocation() {
           {locationDetails.name} in {locationDetails.neighborhoodObject?.name}
           {locationDetails.favorite ? ' 🤍' : ''}
         </h5>
-        <p>{locationDetails.terrain || ''}</p>
-        <hr />
+        <div className="locationCharacteristics">
+          <p>Terrain: {locationDetails.terrain || ''}</p>
+          <p>Slope: {locationDetails.slope || ''}</p>
+          <p>How Busy: {locationDetails.busy || ''}</p>
+          <p>Overall Difficulty: {locationDetails.difficulty || ''}</p>
+          <p>Address: {locationDetails.address || ''}</p>
+        </div>
+        <Link href={`/location/edit/${locationDetails.firebaseKey}`} passHref>
+          <Button variant="info">EDIT</Button>
+        </Link>
       </div>
     </div>
   );
