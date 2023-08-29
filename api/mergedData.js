@@ -1,5 +1,5 @@
-import { getSingleLocation } from './locationData';
-import { getNeighborhoodLocations, getSingleNeighborhood } from './neighborhoodData';
+import { getSingleLocation, deleteLocation } from './locationData';
+import { getNeighborhoodLocations, getSingleNeighborhood, deleteSingleNeighborhood } from './neighborhoodData';
 
 const viewLocationDetails = (locationFirebaseKey) => new Promise((resolve, reject) => {
   getSingleLocation(locationFirebaseKey)
@@ -18,7 +18,19 @@ const viewNeighborhoodDetails = (neighborhoodFirebaseKey) => new Promise((resolv
     }).catch((error) => reject(error));
 });
 
+const deleteNeighborhoodLocations = (neighborhoodId) => new Promise((resolve, reject) => {
+  getNeighborhoodLocations(neighborhoodId).then((locationsArray) => {
+    console.warn(locationsArray, 'Neighborhood Locations');
+    const deleteLocationPromises = locationsArray.map((location) => deleteLocation(location.firebaseKey));
+
+    Promise.all(deleteLocationPromises).then(() => {
+      deleteSingleNeighborhood(neighborhoodId).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
 export {
   viewNeighborhoodDetails,
   viewLocationDetails,
+  deleteNeighborhoodLocations,
 };
