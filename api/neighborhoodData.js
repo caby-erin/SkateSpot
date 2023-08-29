@@ -70,10 +70,23 @@ const updateNeighborhood = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const deleteSingleNeighborhood = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/neighborhoods/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   getNeighborhoods,
   getSingleNeighborhood,
   getNeighborhoodLocations,
   createNeighborhood,
   updateNeighborhood,
+  deleteSingleNeighborhood,
 };

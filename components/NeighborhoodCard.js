@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
+import { deleteNeighborhoodLocations } from '../api/mergedData';
 
-function NeighborhoodCard({ neighborhoodObj }) {
+function NeighborhoodCard({ neighborhoodObj, onUpdate }) {
   console.warn('hello');
+
+  const deleteThisNeighborhood = () => {
+    if (window.confirm(`Delete ${neighborhoodObj.name}?`)) {
+      deleteNeighborhoodLocations(neighborhoodObj.firebaseKey).then(() => onUpdate());
+    }
+  };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
@@ -19,6 +26,9 @@ function NeighborhoodCard({ neighborhoodObj }) {
         <Link href={`/neighborhood/edit/${neighborhoodObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
+        <Button variant="danger" onClick={deleteThisNeighborhood} className="m-2">
+          DELETE
+        </Button>
       </Card.Body>
     </Card>
   );
@@ -29,6 +39,7 @@ NeighborhoodCard.propTypes = {
     name: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default NeighborhoodCard;
