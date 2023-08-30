@@ -3,9 +3,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { Button } from 'react-bootstrap';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getNeighborhoods } from '../../api/neighborhoodData';
 import { createLocation, updateLocation } from '../../api/locationData';
@@ -121,7 +119,6 @@ function LocationForm({ obj }) {
         </Form.Select>
       </FloatingLabel>
 
-      {/* TERRAIN  RADIO BUTTONS  */}
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="terrain" defaultValue={formInput.terrain}>
           <p>Terrain: </p>
@@ -131,7 +128,7 @@ function LocationForm({ obj }) {
           <ToggleButton id="tbg-radio-2" value="Mid" onChange={handleChange}>
             Mid
           </ToggleButton>
-          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange} checked>
             Bumpy
           </ToggleButton>
         </ToggleButtonGroup>
@@ -139,7 +136,6 @@ function LocationForm({ obj }) {
 
       <br />
 
-      {/* SLOPE  RADIO BUTTONS  */}
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="slope" defaultValue={formInput.slope}>
           <p>Slope: </p>
@@ -156,8 +152,6 @@ function LocationForm({ obj }) {
       </div>
 
       <br />
-
-      {/* BUSY  RADIO BUTTONS  */}
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="busy" defaultValue={formInput.busy}>
           <p>How Busy: </p>
@@ -173,7 +167,6 @@ function LocationForm({ obj }) {
         </ToggleButtonGroup>
       </div>
 
-      {/* DIFFICULTY  */}
       <FloatingLabel controlId="floatingInput4" label="Difficulty" className="mb-3">
         <Form.Control
           type="text"
