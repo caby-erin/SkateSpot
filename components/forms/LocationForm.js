@@ -128,7 +128,7 @@ function LocationForm({ obj }) {
           <ToggleButton id="tbg-radio-2" value="Mid" onChange={handleChange}>
             Mid
           </ToggleButton>
-          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange} checked>
+          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange}>
             Bumpy
           </ToggleButton>
         </ToggleButtonGroup>
