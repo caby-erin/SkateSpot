@@ -1,5 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Pattaya&family=Shrikhand&display=swap');
 html,
 body {
   padding: 0;
@@ -18,5 +18,104 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color:lightseagreen;
+}
+
+.navbar {
+  background-color: orange;
+  border-color: white;
+  border: 10px, 10px, 10px, 10px;
+  font-family: 'Fugaz One', cursive;
+  display: flex;
+  flex-direction: column;
+}
+
+.locationCard {
+  max-height: fit-content;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.locationImage {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 25px;
+}
+
+.locationButton {
+  background-color: white;
+  color: black;
+  border-color: orange;
+  border: 10px, 10px, 20px, 30px;
+}
+
+.locationButtonsGroup {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchBox {
+  display: flex;
+  max-width: 400px;
+}
+
+.searchButton {
+  align-self: flex-end;
+  background-color: orange;
+  border: black;
+  height: 40px;
+}
+
+.addLocationButton {
+  background-color: orange;
+  border-color: white;
+  border: 10px, 10px, 10px, 10px;
+}
+
+.signOutButton {
+  align-self: flex-end;
+}
+
+.navbarButtons {
+align-self: end;
+}
+
+.radioButtons {
+  background-color: white;
+  color: black;
+  border-color: orange;
+  border-radius: 200px;
+}
+
+.neighborhoodCard {
+  max-height: fit-content;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.neighborhoodButton {
+  background-color: white;
+  color: black;
+  border-color: orange;
+}
+
+.neighborhoodButtonsGroup {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.neighborhood-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.neighborhoodName {
+  color: white;
+  align-self: center;
+}
+
+.viewNeighborhoodLocations {
+  align-self: flex-start;
 }

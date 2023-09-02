@@ -17,20 +17,22 @@ export default function SearchBar() {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <div className="searchBox">
-          <input
-            className="form-control"
-            id="search"
-            name="search"
-            placeholder="Search Locations"
-            onChange={handleChange}
-            type="text"
-            value={searchInput}
-          />
-          <Button variant="success" type="submit" size="sm">search</Button>
-        </div>
-      </Form>
+      <div className="searchBarAndButton">
+        <Form onSubmit={handleSubmit}>
+          <div className="searchBox">
+            <input
+              className="form-control"
+              id="search"
+              name="search"
+              placeholder="Search Locations"
+              onChange={handleChange}
+              type="text"
+              value={searchInput}
+            />
+            <Button variant="success" type="submit" size="sm" className="searchButton">🔎</Button>
+          </div>
+        </Form>
+      </div>
     </>
   );
 }

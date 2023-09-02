@@ -25,7 +25,7 @@ export default function ViewLocation() {
       <div className="text-white ms-5 details">
         <h5>
           {locationDetails.name} in {locationDetails.neighborhoodObject?.name}
-          {locationDetails.favorite ? ' 🤍' : ''}
+          {locationDetails.favorite ? ' ✰' : ''}
         </h5>
         <div className="locationCharacteristics">
           <p>Terrain: {locationDetails.terrain || ''}</p>

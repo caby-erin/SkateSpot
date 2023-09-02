@@ -13,22 +13,24 @@ function LocationCard({ locationObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={locationObj.image} alt={locationObj.name} style={{ height: '400px' }} />
+    <Card style={{ width: '18rem', margin: '10px' }} className="locationCard">
+      <Card.Img variant="top" src={locationObj.image} alt={locationObj.name} style={{ height: '400px' }} className="locationImage" />
       <Card.Body>
         <Card.Title>{locationObj.name}</Card.Title>
-        <p className="card-text bold">{locationObj.favorite && <span>FAV<br /></span> }</p>
+        <p className="card-text bold">{locationObj.favorite && <span>✰Favorite✰<br /></span> }</p>
         {/* DYNAMIC LINK TO VIEW THE LOCATION DETAILS  */}
-        <Link href={`/location/${locationObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
-        {/* DYNAMIC LINK TO EDIT THE LOCATION DETAILS  */}
-        <Link href={`/location/edit/${locationObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteThisLocation} className="m-2">
-          DELETE
-        </Button>
+        <div className="locationButtonsGroup">
+          <Link href={`/location/${locationObj.firebaseKey}`} passHref>
+            <Button className="locationButton">VIEW</Button>
+          </Link>
+          {/* DYNAMIC LINK TO EDIT THE LOCATION DETAILS  */}
+          <Link href={`/location/edit/${locationObj.firebaseKey}`} passHref>
+            <Button className="locationButton">✎</Button>
+          </Link>
+          <Button onClick={deleteThisLocation} className="locationButton">
+            ✖️
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );
