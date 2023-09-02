@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import { getLocations } from '../api/locationData';
 import LocationCard from '../components/LocationCard';
@@ -20,9 +18,6 @@ function Home() {
   return (
     <div className="text-center my-4">
       <SearchBar />
-      <Link href="/location/new" passHref>
-        <Button>Add A Location</Button>
-      </Link>
       <div className="d-flex flex-wrap">
         {/* TODO: map over locations here using Locationcard component */}
         {locations.map((location) => (

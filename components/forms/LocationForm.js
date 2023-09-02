@@ -121,14 +121,14 @@ function LocationForm({ obj }) {
 
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="terrain" defaultValue={formInput.terrain}>
-          <p>Terrain: </p>
-          <ToggleButton id="tbg-radio-1" value="Smooth" onChange={handleChange}>
+          <p>Terrain </p>
+          <ToggleButton id="tbg-radio-1" value="Smooth" onChange={handleChange} className="radioButtons">
             Smooth
           </ToggleButton>
-          <ToggleButton id="tbg-radio-2" value="Mid" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-2" value="Mid" onChange={handleChange} className="radioButtons">
             Mid
           </ToggleButton>
-          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange} className="radioButtons">
             Bumpy
           </ToggleButton>
         </ToggleButtonGroup>
@@ -138,14 +138,14 @@ function LocationForm({ obj }) {
 
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="slope" defaultValue={formInput.slope}>
-          <p>Slope: </p>
-          <ToggleButton id="tbg-radio-4" value="Flat" onChange={handleChange}>
+          <p>Slope</p>
+          <ToggleButton id="tbg-radio-4" value="Flat" onChange={handleChange} className="radioButtons">
             Flat
           </ToggleButton>
-          <ToggleButton id="tbg-radio-5" value="Mid" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-5" value="Mid" onChange={handleChange} className="radioButtons">
             Mid
           </ToggleButton>
-          <ToggleButton id="tbg-radio-6" value="Steep" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-6" value="Steep" onChange={handleChange} className="radioButtons">
             Steep
           </ToggleButton>
         </ToggleButtonGroup>
@@ -154,14 +154,14 @@ function LocationForm({ obj }) {
       <br />
       <div className="radiobuttons">
         <ToggleButtonGroup type="radio" name="busy" defaultValue={formInput.busy}>
-          <p>How Busy: </p>
-          <ToggleButton id="tbg-radio-7" value="Vacant" onChange={handleChange}>
+          <p>How Busy</p>
+          <ToggleButton id="tbg-radio-7" value="Vacant" onChange={handleChange} className="radioButtons">
             Vacant
           </ToggleButton>
-          <ToggleButton id="tbg-radio-8" value="Mid" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-8" value="Mid" onChange={handleChange} className="radioButtons">
             Mid
           </ToggleButton>
-          <ToggleButton id="tbg-radio-9" value="Packed" onChange={handleChange}>
+          <ToggleButton id="tbg-radio-9" value="Packed" onChange={handleChange} className="radioButtons">
             Packed
           </ToggleButton>
         </ToggleButtonGroup>

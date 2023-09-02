@@ -19,17 +19,17 @@ export default function ViewNeighborhood() {
   }, [firebaseKey]);
 
   return (
-    <div className="mt-5 d-flex flex-wrap">
-      <div className="d-flex flex-column">
+    <div className="mt-5 d-flex flex-wrap neighborhood-view">
+      {/* <div className="d-flex flex-column">
         <img src={neighborhoodDetails.image} alt={neighborhoodDetails.name} style={{ width: '300px' }} />
-      </div>
-      <div className="text-white ms-5 details">
+  </div> */}
+      <div className="neighborhoodName">
         <h5>
           {neighborhoodDetails.name}
         </h5>
         <hr />
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap viewNeighborhoodLocations">
         {neighborhoodDetails.locations?.map((location) => (
           <LocationCard key={location.firebaseKey} locationObj={location} onUpdate={seeNeighborhoodDetails} />
         ))}
