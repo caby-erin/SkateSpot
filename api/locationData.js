@@ -77,10 +77,10 @@ const getLocationsByNeighborhood = (firebaseKey) => new Promise((resolve, reject
 });
 
 const favoriteLocations = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/locations.json?orderBy="${uid}"`, {
+  fetch(`${endpoint}/locations.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
-      'Content Type': 'application/json',
+      'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
