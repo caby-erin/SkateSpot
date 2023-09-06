@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getNeighborhoods } from '../../api/neighborhoodData';
 import { createLocation, updateLocation } from '../../api/locationData';
@@ -33,10 +33,12 @@ function LocationForm({ obj }) {
   }, [obj, user]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const {
+      name, value, type, checked,
+    } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
@@ -119,53 +121,110 @@ function LocationForm({ obj }) {
         </Form.Select>
       </FloatingLabel>
 
-      <div className="radiobuttons">
-        <ToggleButtonGroup type="radio" name="terrain" defaultValue={formInput.terrain}>
-          <p>Terrain </p>
-          <ToggleButton id="tbg-radio-1" value="Smooth" onChange={handleChange} className="radioButtons">
-            Smooth
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-2" value="Mid" onChange={handleChange} className="radioButtons">
-            Mid
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-3" value="Bumpy" onChange={handleChange} className="radioButtons">
-            Bumpy
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </div>
+      {/* TERRAIN RADIO BUTTONS */}
+      <fieldset>
+        <legend>Terrain Type</legend>
+        <input
+          type="radio"
+          id="smooth"
+          name="terrain"
+          value="smooth"
+          checked={formInput.terrain === 'smooth'}
+          onChange={handleChange}
+        />
+        <label htmlFor="smooth">Smooth</label>
+        <br />
+        <input
+          type="radio"
+          id="mid"
+          name="terrain"
+          value="mid"
+          checked={formInput.terrain === 'mid'}
+          onChange={handleChange}
+        />
+        <label htmlFor="mid">Mid</label>
+        <br />
+        <input
+          type="radio"
+          id="bumpy"
+          name="terrain"
+          value="bumpy"
+          checked={formInput.terrain === 'bumpy'}
+          onChange={handleChange}
+        />
+        <label htmlFor="bumpy">Bumpy</label>
+        <br />
+      </fieldset>
 
-      <br />
+      {/* SLOPE RADIO BUTTONS */}
+      <fieldset>
+        <legend>Slope</legend>
+        <input
+          type="radio"
+          id="flat"
+          name="slope"
+          value="flat"
+          checked={formInput.slope === 'flat'}
+          onChange={handleChange}
+        />
+        <label htmlFor="flat">Flat</label>
+        <br />
+        <input
+          type="radio"
+          id="mid"
+          name="slope"
+          value="mid"
+          checked={formInput.slope === 'mid'}
+          onChange={handleChange}
+        />
+        <label htmlFor="mid">Mid</label>
+        <br />
+        <input
+          type="radio"
+          id="steep"
+          name="slope"
+          value="steep"
+          checked={formInput.slope === 'steep'}
+          onChange={handleChange}
+        />
+        <label htmlFor="steep">Steep</label>
+        <br />
+      </fieldset>
 
-      <div className="radiobuttons">
-        <ToggleButtonGroup type="radio" name="slope" defaultValue={formInput.slope}>
-          <p>Slope</p>
-          <ToggleButton id="tbg-radio-4" value="Flat" onChange={handleChange} className="radioButtons">
-            Flat
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-5" value="Mid" onChange={handleChange} className="radioButtons">
-            Mid
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-6" value="Steep" onChange={handleChange} className="radioButtons">
-            Steep
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </div>
-
-      <br />
-      <div className="radiobuttons">
-        <ToggleButtonGroup type="radio" name="busy" defaultValue={formInput.busy}>
-          <p>How Busy</p>
-          <ToggleButton id="tbg-radio-7" value="Vacant" onChange={handleChange} className="radioButtons">
-            Vacant
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-8" value="Mid" onChange={handleChange} className="radioButtons">
-            Mid
-          </ToggleButton>
-          <ToggleButton id="tbg-radio-9" value="Packed" onChange={handleChange} className="radioButtons">
-            Packed
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </div>
+      {/* BUSY RADIO BUTTONS */}
+      <fieldset>
+        <legend>How Busy</legend>
+        <input
+          type="radio"
+          id="vacant"
+          name="busy"
+          value="vacant"
+          checked={formInput.busy === 'vacant'}
+          onChange={handleChange}
+        />
+        <label htmlFor="vacant">Vacant</label>
+        <br />
+        <input
+          type="radio"
+          id="mid"
+          name="busy"
+          value="mid"
+          checked={formInput.busy === 'mid'}
+          onChange={handleChange}
+        />
+        <label htmlFor="mid">Mid</label>
+        <br />
+        <input
+          type="radio"
+          id="packed"
+          name="busy"
+          value="packed"
+          checked={formInput.busy === 'packed'}
+          onChange={handleChange}
+        />
+        <label htmlFor="packed">Packed</label>
+        <br />
+      </fieldset>
 
       <FloatingLabel controlId="floatingInput4" label="Difficulty" className="mb-3">
         <Form.Control
