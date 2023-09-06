@@ -23,6 +23,9 @@ export default function NavBarAuth() {
             <Link passHref href="/neighborhood">
               <Nav.Link>Neighborhoods</Nav.Link>
             </Link>
+            <Link passHref href="/favorite">
+              <Nav.Link>Favorites</Nav.Link>
+            </Link>
             <Link passHref href="/location/new">
               <Nav.Link>Create New Skate Spot</Nav.Link>
             </Link>
