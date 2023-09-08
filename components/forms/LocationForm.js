@@ -15,7 +15,7 @@ const initialState = {
   slope: '',
   busy: '',
   address: '',
-  difficulty: '',
+  difficulty: 0,
   favorite: false,
   public: false,
 };
@@ -39,6 +39,7 @@ function LocationForm({ obj }) {
     setFormInput((prevState) => ({
       ...prevState,
       [name]: type === 'checkbox' ? checked : value,
+      [name]: name === 'difficulty' ? parseInt(value, 10) : value,
     }));
   };
 
@@ -128,8 +129,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="smooth"
           name="terrain"
-          value="smooth"
-          checked={formInput.terrain === 'smooth'}
+          value="Smooth"
+          checked={formInput.terrain === 'Smooth'}
           onChange={handleChange}
         />
         <label htmlFor="smooth">Smooth</label>
@@ -138,8 +139,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="mid"
           name="terrain"
-          value="mid"
-          checked={formInput.terrain === 'mid'}
+          value="Mid"
+          checked={formInput.terrain === 'Mid'}
           onChange={handleChange}
         />
         <label htmlFor="mid">Mid</label>
@@ -148,8 +149,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="bumpy"
           name="terrain"
-          value="bumpy"
-          checked={formInput.terrain === 'bumpy'}
+          value="Bumpy"
+          checked={formInput.terrain === 'Bumpy'}
           onChange={handleChange}
         />
         <label htmlFor="bumpy">Bumpy</label>
@@ -158,13 +159,14 @@ function LocationForm({ obj }) {
 
       {/* SLOPE RADIO BUTTONS */}
       <fieldset>
+        <br />
         <legend>Slope</legend>
         <input
           type="radio"
           id="flat"
           name="slope"
-          value="flat"
-          checked={formInput.slope === 'flat'}
+          value="Flat"
+          checked={formInput.slope === 'Flat'}
           onChange={handleChange}
         />
         <label htmlFor="flat">Flat</label>
@@ -173,8 +175,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="mid"
           name="slope"
-          value="mid"
-          checked={formInput.slope === 'mid'}
+          value="Mid"
+          checked={formInput.slope === 'Mid'}
           onChange={handleChange}
         />
         <label htmlFor="mid">Mid</label>
@@ -183,8 +185,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="steep"
           name="slope"
-          value="steep"
-          checked={formInput.slope === 'steep'}
+          value="Steep"
+          checked={formInput.slope === 'Steep'}
           onChange={handleChange}
         />
         <label htmlFor="steep">Steep</label>
@@ -193,13 +195,14 @@ function LocationForm({ obj }) {
 
       {/* BUSY RADIO BUTTONS */}
       <fieldset>
+        <br />
         <legend>How Busy</legend>
         <input
           type="radio"
           id="vacant"
           name="busy"
-          value="vacant"
-          checked={formInput.busy === 'vacant'}
+          value="Vacant"
+          checked={formInput.busy === 'Vacant'}
           onChange={handleChange}
         />
         <label htmlFor="vacant">Vacant</label>
@@ -208,8 +211,8 @@ function LocationForm({ obj }) {
           type="radio"
           id="mid"
           name="busy"
-          value="mid"
-          checked={formInput.busy === 'mid'}
+          value="Mid"
+          checked={formInput.busy === 'Mid'}
           onChange={handleChange}
         />
         <label htmlFor="mid">Mid</label>
@@ -218,14 +221,29 @@ function LocationForm({ obj }) {
           type="radio"
           id="packed"
           name="busy"
-          value="packed"
-          checked={formInput.busy === 'packed'}
+          value="Packed"
+          checked={formInput.busy === 'Packed'}
           onChange={handleChange}
         />
         <label htmlFor="packed">Packed</label>
         <br />
       </fieldset>
 
+      <br />
+      <legend className="">{formInput.difficulty} Overall Difficulty</legend>
+      <FloatingLabel className="custom-slider m-4 mb-6">
+        <input
+          type="range"
+          min={1}
+          max={10}
+          step={1}
+          name="difficulty"
+          onChange={handleChange}
+          value={parseInt(formInput.difficulty, 10)}
+        />
+        <output htmlFor="fader" />
+      </FloatingLabel>
+      {/*
       <FloatingLabel controlId="floatingInput4" label="Difficulty" className="mb-3">
         <Form.Control
           type="text"
@@ -236,6 +254,7 @@ function LocationForm({ obj }) {
           required
         />
       </FloatingLabel>
+      */}
 
       <Form.Check
         className="text-white mb-3"
@@ -284,7 +303,7 @@ LocationForm.propTypes = {
     slope: PropTypes.string,
     busy: PropTypes.string,
     firebaseKey: PropTypes.string,
-    difficulty: PropTypes.string,
+    difficulty: PropTypes.number,
   }),
 };
 
