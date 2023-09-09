@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
+import { useAuth } from '../../utils/context/authContext';
 import { viewLocationDetails } from '../../api/mergedData';
 
 export default function ViewLocation() {
   const [locationDetails, setLocationDetails] = useState({});
   const router = useRouter();
+  const { user } = useAuth();
 
   const { firebaseKey } = router.query;
 
@@ -34,9 +36,21 @@ export default function ViewLocation() {
           <p>Overall Difficulty: {locationDetails.difficulty || ''}</p>
           <p>Address: {locationDetails.address || ''}</p>
         </div>
+
+        {locationDetails.uid === user.uid ? (
+          <Link href={`/location/edit/${locationDetails.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+        ) : (
+          ''
+        )}
+
+        {/*
         <Link href={`/location/edit/${locationDetails.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
+        */}
+
       </div>
     </div>
   );
