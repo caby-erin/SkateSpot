@@ -29,6 +29,9 @@ export default function NavBarAuth() {
             <Link passHref href="/location/new">
               <Nav.Link>Create New Skate Spot</Nav.Link>
             </Link>
+            <Link passHref href="/community">
+              <Nav.Link>Community</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut} className="signOutButton">Sign Out</Button>
           </Nav>
         </Navbar.Collapse>

@@ -91,6 +91,21 @@ const favoriteLocations = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const communityLocations = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/locations.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const community = Object.values(data).filter((location) => location.public);
+      resolve(community);
+    })
+    .catch(reject);
+});
+
 export {
   getLocations,
   deleteLocation,
@@ -99,4 +114,5 @@ export {
   getLocationsByNeighborhood,
   updateLocation,
   favoriteLocations,
+  communityLocations,
 };

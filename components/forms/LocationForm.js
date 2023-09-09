@@ -15,7 +15,7 @@ const initialState = {
   slope: '',
   busy: '',
   address: '',
-  difficulty: 0,
+  difficulty: 1,
   favorite: false,
   public: false,
 };
