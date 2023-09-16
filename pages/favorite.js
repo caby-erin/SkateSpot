@@ -1,29 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
-import LocationCard from '../components/LocationCard';
-import { favoriteLocations } from '../api/locationData';
+import { getUserFavorites, getEveryLocation } from '../api/locationData';
+import OtherUserLocationCard from '../components/otherUserLocationCard';
 
-function FavoriteLocationsPage() {
-  const [favorites, setFavorites] = useState([]);
+export default function UserFavorites() {
   const { user } = useAuth();
-
-  const getAllFavoriteLocations = () => {
-    favoriteLocations(user.uid).then(setFavorites);
-  };
+  const [userFavorites, setUserFavorites] = useState([]);
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    getAllFavoriteLocations();
+    if (user && user.uid) {
+      getUserFavorites(user.uid)
+        .then((favorites) => {
+          setUserFavorites(favorites);
+        })
+        .catch((error) => {
+          console.error('Error fetching user favorites', error);
+        });
+    }
+  }, [user]);
+
+  useEffect(() => {
+    getEveryLocation().then((locationData) => {
+      setLocations(locationData);
+    })
+      .catch((error) => {
+        console.error('Error fetching locations', error);
+      });
   }, []);
 
   return (
-    <div className="text-center my-4">
-      <div className="d-flex flex-wrap">
-        {favorites?.map((favoriteLocation) => (
-          <LocationCard key={favoriteLocation?.firebaseKey} locationObj={favoriteLocation} onUpdate={getAllFavoriteLocations} />
-        ))}
+    <div>
+      <div className="user-favorites">My Favorite Locations</div>
+      <div className="myFavorites">
+        {userFavorites.map((favorite) => {
+          const matchingLocation = locations.find((location) => location.firebaseKey === favorite.locationFirebaseKey);
+          if (matchingLocation) {
+            return (
+              <OtherUserLocationCard
+                key={matchingLocation.firebaseKey}
+                locationObj={matchingLocation}
+                userFavorites={userFavorites}
+                onUpdate={() => getUserFavorites(user.uid).then((favorites) => setUserFavorites(favorites))}
+              />
+            );
+          }
+          return null;
+        })}
       </div>
     </div>
   );
 }
-
-export default FavoriteLocationsPage;

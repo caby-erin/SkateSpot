@@ -45,12 +45,6 @@ export default function ViewLocation() {
           ''
         )}
 
-        {/*
-        <Link href={`/location/edit/${locationDetails.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        */}
-
       </div>
     </div>
   );

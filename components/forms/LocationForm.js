@@ -16,7 +16,6 @@ const initialState = {
   busy: '',
   address: '',
   difficulty: 1,
-  favorite: false,
   public: false,
 };
 
@@ -259,21 +258,6 @@ function LocationForm({ obj }) {
       <Form.Check
         className="text-white mb-3"
         type="switch"
-        id="favorite"
-        name="favorite"
-        label="Favorite?"
-        checked={formInput.favorite}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            favorite: e.target.checked,
-          }));
-        }}
-      />
-
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
         id="public"
         name="public"
         label="Make Public?"
@@ -297,7 +281,6 @@ LocationForm.propTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
     address: PropTypes.string,
-    favorite: PropTypes.bool,
     public: PropTypes.bool,
     terrain: PropTypes.string,
     slope: PropTypes.string,
