@@ -119,3 +119,13 @@ align-self: end;
 .viewNeighborhoodLocations {
   align-self: flex-start;
 }
+
+.activeFavorite {
+  background: white;
+  color:darkcyan;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  text-shadow: orangered 0 0 10px;
+
+}
