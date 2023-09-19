@@ -21,7 +21,7 @@ function NeighborhoodCard({ neighborhoodObj, onUpdate }) {
         {/* DYNAMIC LINK TO VIEW THE NEIGHBORHOOD DETAILS  */}
         <div className="neighborhoodButtonsGroup">
           <Link href={`/neighborhood/${neighborhoodObj.firebaseKey}`} passHref>
-            <Button variant="primary" className="neighborhoodButton">View</Button>
+            <Button variant="primary" className="neighborhoodButton">🔎</Button>
           </Link>
           {/* DYNAMIC LINK TO EDIT THE NEIGHBORHOOD DETAILS  */}
           <Link href={`/neighborhood/edit/${neighborhoodObj.firebaseKey}`} passHref>

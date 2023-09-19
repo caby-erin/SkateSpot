@@ -59,7 +59,7 @@ function NeighborhoodForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Neighborhood</Button>
+      <Button className="form-buttons" type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Neighborhood</Button>
     </Form>
   );
 }

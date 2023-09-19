@@ -5,7 +5,7 @@ import { useAuth } from '../utils/context/authContext';
 import { getNeighborhoods } from '../api/neighborhoodData';
 import NeighborhoodCard from '../components/NeighborhoodCard';
 
-export default function NayNay() {
+export default function Neighborhoods() {
   const [neighborhoods, setNeighborhoods] = useState([]);
 
   const { user } = useAuth();
@@ -21,7 +21,7 @@ export default function NayNay() {
   return (
     <div className="text-center my-4">
       <Link href="/neighborhood/new" passHref>
-        <Button>Add A Neighborhood</Button>
+        <Button className="form-buttons">Add A Neighborhood</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {neighborhoods.map((neighborhood) => (
