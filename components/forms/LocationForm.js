@@ -256,7 +256,7 @@ function LocationForm({ obj }) {
       */}
 
       <Form.Check
-        className="text-white mb-3"
+        className="text-white mb-3 toggle-switch"
         type="switch"
         id="public"
         name="public"
@@ -271,7 +271,7 @@ function LocationForm({ obj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Location</Button>
+      <Button className="form-buttons" type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Location</Button>
     </Form>
   );
 }

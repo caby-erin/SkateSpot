@@ -60,3 +60,34 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+
+command to run local server: npm run dev 
+command to donwload necessary modules: npm i
+(additional info referenced above)
+
+Link to wire frames: https://whimsical.com/your-skate-spots-EhzU8JXrLSfgfpYNEbpK52
+Link to ERD: https://dbdiagram.io/d/Skate-Spot-64dabce302bd1c4a5ec5bd38
+
+Skate Spot is a react app that allows users to create, update, edit, and delete skate locations. The user is able to note the terrain, slope, and business of a locations, as well as rate the overall difficulty. Users can share their locations by making them "public" which puts them on the community page. From the community page, you can view and favorite others users locations. 
+
+## Name of the Project: 
+Skate Spot
+## Overview of the project: 
+Skate Spot is a react app that allows users to track and manage skate locations they have visited, or wish to visit!
+## Link to your wireframes/prototype: 
+Link to wire frames: https://whimsical.com/your-skate-spots-EhzU8JXrLSfgfpYNEbpK52
+## Link/screenshot of data flowchartL 
+Link to ERD: https://dbdiagram.io/d/Skate-Spot-64dabce302bd1c4a5ec5bd38
+## Link to the deployed project 
+https://chipper-chaja-c791bc.netlify.app/
+
+## Description of the user and the problem you are solving for them: 
+The user is a skater that wants to keep track of all their skate locations around town. They want to remember specific features about each location.
+
+## List of features - 
+Create, view, update, and delete skate locations. Serach for skate locations based off of location name or feature (smooth, bumpy, busy, etc.). Can filter by favorite locations or by neighborhood. Can view other users locations on the "community" page - user can favorite other users locations. 
+
+## Screenshots of your project  - 
+
+## Link to Loom video walkthrough of your app (no more than 1 minute long! Make it great)

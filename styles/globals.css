@@ -18,7 +18,7 @@ a {
 }
 
 body {
-  background-color:lightseagreen;
+  background-color:lightseagreen !important;
 }
 
 .navbar {
@@ -61,7 +61,7 @@ body {
 
 .searchButton {
   align-self: flex-end;
-  background-color: orange;
+  background-color: orange !important;
   border: black;
   height: 40px;
 }
@@ -94,9 +94,9 @@ align-self: end;
 }
 
 .neighborhoodButton {
-  background-color: white;
+  background-color: white !important;
   color: black;
-  border-color: orange;
+  border-color: orange !important;
 }
 
 .neighborhoodButtonsGroup {
@@ -127,5 +127,36 @@ align-self: end;
   border-radius: 5px;
   cursor: pointer;
   text-shadow: orangered 0 0 10px;
+}
 
+.login-button{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: orange;
+    border-color: white;
+}
+
+.login-button:hover {
+  background-color: darkgoldenrod;
+}
+
+.form-buttons {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: orange;
+  border-color: white;
+}
+
+.form-buttons:hover {
+  background-color: darkgoldenrod;
+}
+
+.custom-slider {
+  color: orange;
+}
+
+input[type="range"] {
+  accent-color: orange;
+}
+
+.toggle-switch {
+  accent-color: orange;
 }
