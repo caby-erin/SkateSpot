@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
@@ -13,7 +14,14 @@ function Signin() {
         margin: '0 auto',
       }}
     >
-      <h1>Welcome Skater!</h1>
+      <div className="singInLogoContainer">
+        <Image
+          className="signInLogo"
+          src="/skatelogo.png"
+          alt="logo"
+        />
+      </div>
+      <h3>Welcome Skater!</h3>
       <p>Click the button below to log in</p>
       <Button type="button" size="lg" className="copy-btn login-button" onClick={signIn}>
         Sign In
