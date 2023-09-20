@@ -26,8 +26,9 @@ body {
   border-color: white;
   border: 10px, 10px, 10px, 10px;
   font-family: 'Fugaz One', cursive;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  */
 }
 
 .locationCard {
@@ -77,7 +78,8 @@ body {
 }
 
 .navbarButtons {
-align-self: end;
+  display: flex;
+  justify-content: space-between;
 }
 
 .radioButtons {
@@ -159,4 +161,29 @@ input[type="range"] {
 
 .toggle-switch {
   accent-color: orange;
+}
+
+.editAndFavoriteButton {
+  color: black;
+}
+
+.logo {
+  max-width: 50px;
+  max-height: 100px;
+}
+
+.navbarlogo {
+  max-height: 60px;
+  max-width: 50px;
+}
+
+.singInLogoContainer{
+  align-self: center;
+
+}
+
+.signInLogo { 
+  max-width: 200px;
+  max-height: 300 px;
+  align-self: flex-start;
 }

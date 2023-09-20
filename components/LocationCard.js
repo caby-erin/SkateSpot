@@ -54,7 +54,7 @@ export default function LocationCard({ locationObj, onUpdate, userFavorites }) {
         {/* <p className="card-text bold">{locationObj.favorite && <span>✰Favorite✰<br /></span> }</p> */}
         {/* DYNAMIC LINK TO VIEW THE LOCATION DETAILS  */}
         <div className="locationButtonsGroup">
-          <Button onClick={toggleFavorite} className="locationButton">
+          <Button onClick={toggleFavorite} className="locationButton editAndFavoriteButton">
             {isFavorite ? (
               <div className="activeFavorite"> ★ </div>
             ) : (
@@ -66,7 +66,7 @@ export default function LocationCard({ locationObj, onUpdate, userFavorites }) {
           </Link>
           {/* DYNAMIC LINK TO EDIT THE LOCATION DETAILS  */}
           <Link href={`/location/edit/${locationObj.firebaseKey}`} passHref>
-            <Button className="locationButton">✎</Button>
+            <Button className="locationButton editAndFavoriteButton">✎</Button>
           </Link>
           <Button onClick={deleteThisLocation} className="locationButton">
             ✖️

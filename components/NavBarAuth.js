@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar, Container, Nav, Button, Image,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 
@@ -10,6 +10,11 @@ export default function NavBarAuth() {
   return (
     <Navbar collapseOnSelect expand="lg">
       <Container className="navbar">
+        <Image
+          className="navbarlogo"
+          src="/skatelogo.png"
+          alt="logo"
+        />
         <Link passHref href="/">
           <Navbar.Brand>SKATE SPOT</Navbar.Brand>
         </Link>
