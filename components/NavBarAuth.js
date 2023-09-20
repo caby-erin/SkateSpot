@@ -12,7 +12,7 @@ export default function NavBarAuth() {
       <Container className="navbar">
         <Image
           className="navbarlogo"
-          src="/skatelogo.png"
+          src="/logonotext.png"
           alt="logo"
         />
         <Link passHref href="/">

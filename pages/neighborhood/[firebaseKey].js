@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { viewNeighborhoodDetails } from '../../api/mergedData';
-import LocationCard from '../../components/LocationCard';
+import NeighborhoodLocationCard from '../../components/NeighborhoodLocationCard';
 
 export default function ViewNeighborhood() {
   const [neighborhoodDetails, setNeighborhoodDetails] = useState({});
@@ -31,7 +31,7 @@ export default function ViewNeighborhood() {
       </div>
       <div className="d-flex flex-wrap viewNeighborhoodLocations">
         {neighborhoodDetails.locations?.map((location) => (
-          <LocationCard
+          <NeighborhoodLocationCard
             key={location.firebaseKey}
             locationObj={location}
             onUpdate={seeNeighborhoodDetails}
