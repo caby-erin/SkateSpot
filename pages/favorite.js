@@ -31,22 +31,23 @@ export default function UserFavorites() {
 
   return (
     <div>
-      <div className="user-favorites">My Favorite Locations</div>
-      <div className="myFavorites">
-        {userFavorites.map((favorite) => {
-          const matchingLocation = locations.find((location) => location.firebaseKey === favorite.locationFirebaseKey);
-          if (matchingLocation) {
-            return (
-              <OtherUserLocationCard
-                key={matchingLocation.firebaseKey}
-                locationObj={matchingLocation}
-                userFavorites={userFavorites}
-                onUpdate={() => getUserFavorites(user.uid).then((favorites) => setUserFavorites(favorites))}
-              />
-            );
-          }
-          return null;
-        })}
+      <div className="text-center my-4">
+        <div className="d-flex flex-wrap">
+          {userFavorites.map((favorite) => {
+            const matchingLocation = locations.find((location) => location.firebaseKey === favorite.locationFirebaseKey);
+            if (matchingLocation) {
+              return (
+                <OtherUserLocationCard
+                  key={matchingLocation.firebaseKey}
+                  locationObj={matchingLocation}
+                  userFavorites={userFavorites}
+                  onUpdate={() => getUserFavorites(user.uid).then((favorites) => setUserFavorites(favorites))}
+                />
+              );
+            }
+            return null;
+          })}
+        </div>
       </div>
     </div>
   );

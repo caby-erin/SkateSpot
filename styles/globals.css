@@ -33,7 +33,7 @@ body {
 .locationCard {
   max-height: fit-content;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 25px !important;
 }
 
 .locationImage {
@@ -43,7 +43,7 @@ body {
 }
 
 .locationButton {
-  background-color: white;
+  background-color: white !important;
   color: black;
   border-color: orange;
   border: 10px, 10px, 20px, 30px;
@@ -90,7 +90,7 @@ align-self: end;
 .neighborhoodCard {
   max-height: fit-content;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 25px !important;
 }
 
 .neighborhoodButton {
@@ -141,8 +141,8 @@ align-self: end;
 
 .form-buttons {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-color: orange;
-  border-color: white;
+  background-color: orange !important;
+  border-color: white !important;
 }
 
 .form-buttons:hover {
