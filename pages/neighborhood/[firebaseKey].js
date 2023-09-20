@@ -31,7 +31,11 @@ export default function ViewNeighborhood() {
       </div>
       <div className="d-flex flex-wrap viewNeighborhoodLocations">
         {neighborhoodDetails.locations?.map((location) => (
-          <LocationCard key={location.firebaseKey} locationObj={location} onUpdate={seeNeighborhoodDetails} />
+          <LocationCard
+            key={location.firebaseKey}
+            locationObj={location}
+            onUpdate={seeNeighborhoodDetails}
+          />
         ))}
       </div>
     </div>
