@@ -45,9 +45,9 @@ body {
 
 .locationButton {
   background-color: white !important;
-  color: black;
-  border-color: orange;
-  border: 10px, 10px, 20px, 30px;
+  color: black !important;
+  border-color: orange !important;
+  border: 10px, 10px, 20px, 30px !important;
 }
 
 .locationButtonsGroup {
@@ -132,9 +132,9 @@ body {
 }
 
 .login-button{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    background-color: orange;
-    border-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19) !important;
+    background-color: orange !important;
+    border-color: white !important;
 }
 
 .login-button:hover {
@@ -164,7 +164,7 @@ input[type="range"] {
 }
 
 .editAndFavoriteButton {
-  color: black;
+  color: black !important;
 }
 
 .logo {
@@ -184,6 +184,6 @@ input[type="range"] {
 
 .signInLogo { 
   max-width: 200px;
-  max-height: 300 px;
+  max-height: 300px;
   align-self: flex-start;
 }
